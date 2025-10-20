@@ -1,4 +1,8 @@
-*__pycahce__*
+# Python cache
+__pycache__/
 *.pyc
-./models
-./output_videos
+
+# Carpetas de datos, modelos y salidas
+/models/
+/input_videos/
+/output_videos/

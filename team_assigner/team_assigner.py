@@ -1,3 +1,18 @@
+"""
+Continuemos por acá,mmm diria que  la lógica que has montado aquí para asignar los equipos esta bien. Lo de
+usar K-Means en dos pasos (primero para sacar el color de la camiseta y luego para agrupar
+esos colores en dos equipos) es un enfoque curioso, que decente. Y el truco de usar las esquinas de la
+imagen para identificar el clúster del césped y así saber cuál es el del jugador, esta muy biien.
+
+He visto el apaño para el `player_id == 91`. Es una solución rápida que funciona,pero es una CUTRADA,
+Si en el futuro nos da problemas(te los va a dar), podríamos investigar por qué falla
+la asignación con ese jugador en concreto. A veces, pasar la imagen a un espacio de color
+como HSV(means:modelo de color), que es más robusto a cambios de iluminación, puede hacer que nuestro querido
+clustering sea más estable. Podríamos probarlo si vemos que falla con más jugadores. Pero vamos, que la
+idea general de la clase es esta guay para tu tfg.
+NO se me ocurre aca pero podrías desarrollar algo la logica para sacar nuevas métricas...(aunque esto va a depender de la calidad de la imagen,
+otros modelso que puedas usar, benchmarks etc...
+"""
 from sklearn.cluster import KMeans
 
 class TeamAssigner:

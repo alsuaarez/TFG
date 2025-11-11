@@ -1,3 +1,11 @@
+"""
+Un par de sugerencias para dejarlo bien chulo. He visto que has metido aquí todas las
+funciones de dibujo (`draw_ellipse`, `draw_traingle`, etc.). Para que esta clase se
+centre solo en la lógica de 'trackear' y quede más limpia (principio de responsabilidad
+única y tal, un poquto de clean code mi rey), podríamos crear una clase nueva, tipo `AnnotationsDrawer`, y mover toda esa
+lógica de dibujo allí. Ah, y un detallito sin importancia: en `add_position_to_tracks`
+se te coló un `sekf` en vez de `self` en los argumentos. (esto no lo has ejecutado pq te saltaria fallo de manual)
+"""
 from ultralytics import YOLO
 import supervision as sv
 import pickle

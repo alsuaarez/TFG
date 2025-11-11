@@ -1,3 +1,18 @@
+"""
+mmmm vale , el cálculo de velocidad y distancia está muy bien pensado. Usar una ventana
+de frames (`frame_window`) para calcular la velocidad es gout, porque suaviza la
+medida y evita esos picos raros que a veces salen por el pequeño "baile" de las detecciones.
+La lógica para ir acumulando la distancia total por jugador también está perfecta.
+
+Dos cosillas interesantes  que podríamos mejorar/cambialas anda: el `frame_rate` está fijado a 24. Estaría genial que
+este valor viniera de fuera (por ejemplo, al inicializar la clase), porque no todos los
+vídeos que analicemos irán a 24fps(más bien, mucho mas ).Otra idea guay sería que
+ las `position_transformed` a veces pueden tener un pelín de ruido.
+Si antes de calcular la distancia aplicáramos un Filtro de Kalman(lo estoy dando ahora en el master) a la secuencia de
+posiciones de cada jugador, la trayectoria quedaría súper suave y las métricas de velocidad
+y distancia serían mucho más estables y realistas. 
+Sería sacada y toque de calidad, es facil de hacer...
+"""
 import cv2
 import sys 
 sys.path.append('../')

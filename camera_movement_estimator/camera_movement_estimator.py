@@ -1,3 +1,16 @@
+"""
+Vamos a ver el TFG del chavalin, para comenzar la idea de usar una máscara para el flujo óptico
+me parece buena. Así nos  aseguramos de que solo trackeas puntos de los laterales (que se supone que
+son estáticos) y no de los jugadores, nice! La lógica para ajustar las posiciones
+de los tracks con este movimiento de cámara es el núcleo de todo esto y lo que comentamos alla cuando nos cruzamos...
+
+Asi como tips, todos esos parámetros mágicos (minimum_distance,
+winSize, maxCorners, etc.) los podríamos mover a un archivo de configuración tipo config.py
+o un YAML. Así, si queremos probar a tunearlos, no tenemos que tocar el código. Y una pequeña
+optimización que se me ocurre: en vez de llamar a goodFeaturesToTrack cada vez, podríamos
+reutilizar los puntos que ya tenemos y solo recalcularlos cuando perdamos un porcentaje
+grande de ellos.
+"""
 import pickle
 import cv2
 import numpy as np

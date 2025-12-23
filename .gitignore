@@ -7,3 +7,4 @@ __pycache__/
 /input_videos/
 /output_videos/
 /data/
+tracks_final.pkl

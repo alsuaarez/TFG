@@ -14,16 +14,20 @@ class Tracker:
         self.model = YOLO(model_path) 
         self.tracker = sv.ByteTrack()
 
-    def add_position_to_tracks(sekf,tracks):
+# Funcion para añadir la posición a los tracks
+    def add_position_to_tracks(self, tracks):
         for object, object_tracks in tracks.items():
             for frame_num, track in enumerate(object_tracks):
-                for track_id, track_info in track.items():
+                for id, track_info in track.items():
                     bbox = track_info['bbox']
                     if object == 'ball':
-                        position= get_center_of_bbox(bbox)
+                        # Centro del Bounding Box
+                        position = [(bbox[0] + bbox[2]) / 2, (bbox[1] + bbox[3]) / 2]
                     else:
-                        position = get_foot_position(bbox)
-                    tracks[object][frame_num][track_id]['position'] = position
+                        # Centro inferior, cálculo de pies
+                        position = [(bbox[0] + bbox[2]) / 2, bbox[3]]
+                    
+                    track_info['position_adjusted'] = position
 
     def interpolate_ball_positions(self,ball_positions):
         ball_positions = [x.get(1,{}).get('bbox',[]) for x in ball_positions]
